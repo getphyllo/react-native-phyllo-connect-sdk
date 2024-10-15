@@ -1,6 +1,6 @@
 {
   "name": "react-native-phyllo-connect",
-  "version": "0.3.7",
+  "version": "0.3.6",
   "description": "Phyllo Connect is a quick and secure way to connect work platforms via Phyllo in your app. Supports: iOS, Android.",
   "homepage": "https://github.com/getphyllo/phyllo-connect-reactnative/",
   "types": "lib/index.d.ts",
