@@ -17,7 +17,7 @@
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-bouncy-checkbox": "^3.0.7",
-    "react-native-phyllo-connect": "file:../react-native-phyllo-connect-0.3.6.tgz",
+    "react-native-phyllo-connect": "file:../react-native-phyllo-connect-0.3.7.tgz",
     "react-native-simple-toast": "^3.2.0"
   },
   "devDependencies": {

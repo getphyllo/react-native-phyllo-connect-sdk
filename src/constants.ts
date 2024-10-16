@@ -17,11 +17,11 @@ export interface Version {
 }
 
 export const reactNativeVersionObj: Version = {
-  connect_reactnative_sdk_version: '0.3.6',
-  connect_ios_sdk_version: '0.3.5',
+  connect_reactnative_sdk_version: '0.3.7',
+  connect_ios_sdk_version: '0.3.6',
   min_supported_ios_version: '12.0',
   max_supported_ios_version: '17.0*',
-  connect_android_sdk_version: '0.3.5',
+  connect_android_sdk_version: '0.3.6',
   min_supported_android_version: '21',
   max_supported_android_version: '34',
 

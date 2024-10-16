@@ -79,7 +79,7 @@ class PhylloConnectModule(reactContext: ReactApplicationContext) : ReactContextB
             map["environment"] = getPhylloEnvironment(map["environment"] as String)
             map["callback"] = callback
             map["external_sdk_name"] = "reactnative" //for Analytics
-            map["external_sdk_version"] = "0.3.6"  // for sdk version
+            map["external_sdk_version"] = "0.3.7"  // for sdk version
             PhylloConnect.initialize(context = reactApplicationContext, map)
         }
     }
