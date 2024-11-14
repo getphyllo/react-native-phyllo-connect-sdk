@@ -1,4 +1,4 @@
-import { PhylloEnvironment } from "react-native-phyllo-connect"
+import { PhylloEnvironment } from 'react-native-phyllo-connect'
 
 const clientId = '<client id here>' // add your Id here
 const clientSecret = '<client secret here>' // add your client Secret

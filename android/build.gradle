@@ -15,20 +15,38 @@ buildscript {
     }
 }
 
-def safeExtGet(prop, fallback) {
-    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+def isNewArchitectureEnabled() {
+    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 34)
-    buildToolsVersion safeExtGet('buildToolsVersion', '34.0.0')
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
 
-    defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 21)
-        targetSdkVersion safeExtGet('targetSdkVersion', 34)
+android {
+    buildToolsVersion safeExtGet("buildToolsVersion", "34.0.0")
+    compileSdkVersion safeExtGet("compileSdkVersion", 34)
+
+    if (project.android.hasProperty("namespace")) {
+        namespace "com.phylloconnect"
+
+        buildFeatures {
+            buildConfig true
+        }
+        sourceSets {
+            main {
+                manifest.srcFile "src/main/AndroidManifestNew.xml"
+            }
+        }
+    }
+
+     defaultConfig {
+        buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString())
+        minSdkVersion safeExtGet("minSdkVersion", 23)
+        targetSdkVersion safeExtGet("targetSdkVersion", 34)
     }
 }
 //For Snapshot
@@ -45,6 +63,10 @@ android {
 
 //For Release version
 repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url("$rootDir/../node_modules/react-native/android")
+    }
     google()
     mavenCentral()
 }

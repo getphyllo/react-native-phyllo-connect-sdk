@@ -12,8 +12,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
       - name: Install dependencies and compiles all typescript files 🔧
         run: npm install && npm run compile
       - name: Publish package on NPM 📦

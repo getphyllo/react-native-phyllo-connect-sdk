@@ -30,7 +30,7 @@ const getAxiosInstance = (baseURL) => {
 }
 
 // creates a user, https://docs.getphyllo.com/docs/api-reference/b3A6MTQwNjEzNzY-create-a-user
-export const createUser = async (name, externalId,baseURL) => {
+export const createUser = async (name, externalId, baseURL) => {
   try {
     const api = getAxiosInstance(baseURL)
     let response = await api.post(CREATE_USER_ENDPOINT, {
@@ -44,7 +44,7 @@ export const createUser = async (name, externalId,baseURL) => {
 }
 
 // creates a sdk token, https://docs.getphyllo.com/docs/api-reference/b3A6MTQwNjEzNzc-create-an-sdk-token
-export const createUserToken = async (userId,baseURL) => {
+export const createUserToken = async (userId, baseURL) => {
   if (!userId) {
     let err = new Error('User id cannot be blank or null')
     throw err

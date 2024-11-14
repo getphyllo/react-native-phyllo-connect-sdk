@@ -1,8 +1,8 @@
 enum PhylloEnvironment {
-  development = 'development',
-  production = 'production',
-  sandbox = 'sandbox',
-  staging = 'staging',
+  development = "development",
+  production = "production",
+  sandbox = "sandbox",
+  staging = "staging",
 }
 
-export { PhylloEnvironment }
+export { PhylloEnvironment };

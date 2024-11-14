@@ -1,56 +1,85 @@
 {
   "name": "react-native-phyllo-connect",
   "version": "0.3.7",
-  "description": "Phyllo Connect is a quick and secure way to connect work platforms via Phyllo in your app. Supports: iOS, Android.",
-  "homepage": "https://github.com/getphyllo/phyllo-connect-reactnative/",
-  "types": "lib/index.d.ts",
-  "author": "Phyllo <phyl@getphyllo.com>",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "description": "Phyllo Connect is a quick and secure way to connect work platforms via Phyllo in your app. Supports: iOS, Android.",
+  "author": "Phyllo <phyl@getphyllo.com>",
+  "homepage": "https://github.com/getphyllo/phyllo-connect-reactnative/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getphyllo/phyllo-connect-reactnative.git"
+  },
+  "keywords": [
+    "phyllo-connect",
+    "getphyllo",
+    "phyllo",
+    "react-native-phyllo-connect",
+    "phyllo-connect-react-native"
+  ],
+  "types": "dist/typescript/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/module/index.js",
+  "react-native": "src/index.ts",
   "bugs": {
     "url": "https://github.com/getphyllo/phyllo-connect-reactnative/issues"
   },
   "files": [
-    "android",
-    "ios",
-    "lib",
-    "react-native-phyllo-connect.podspec",
-    "!android/build",
-    "!.DS_Store",
-    "!.gradle",
-    "!.idea",
-    "!build",
-    "!gradle",
-    "!*.iml",
-    "!gradlew",
-    "!gradlew.bat",
-    "!local.properties",
-    "!project.xcworkspace",
-    "!xcshareddata",
-    "!xcuserdata"
+    "/android",
+    "!/android/build",
+    "/dist",
+    "/ios",
+    "/scripts",
+    "/windows",
+    "/src",
+    "/*.podspec",
+    "app.plugin.js",
+    "mock.js",
+    "react-native.config.js"
   ],
   "scripts": {
-    "compile": "rm -rf lib && tsc -p .",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "npm run compile",
-    "test": "jest"
+    "clean": "rm -rf dist",
+    "format": "prettier '**/*' -u -w",
+    "lint": "eslint './**/*.{--ext,js,ts,tsx}'",
+    "typecheck": "tsc --noEmit",
+    "build": "yarn clean && bob build && rm -rf dist/commonjs/package.json",
+    "prepack": "prettier '**/*' -u -c && yarn lint && yarn typecheck && yarn build"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/runtime": "^7.16.7",
-    "@react-native-community/eslint-config": "^3.0.1",
-    "@types/jest": "^27.4.0",
-    "@types/react-native": "^0.66.15",
-    "@types/react-test-renderer": "^17.0.1",
-    "babel-jest": "^27.4.6",
-    "jest": "^27.4.7",
-    "metro-react-native-babel-preset": "^0.67.0",
-    "react": "^18.2.0",
-    "react-native": "^0.73.3",
-    "react-test-renderer": "^18.0.2",
-    "typescript": "^4.5.5"
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@expo/config-plugins": "^7.2.5 || ^8.0.4",
+    "@types/react": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "react": "18.3.1",
+    "react-native": "0.75.4",
+    "react-native-builder-bob": "^0.30.2",
+    "typescript": "5.5.4"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "react": ">=18.1.0",
+    "react-native": ">=0.70.0",
+    "react-native-windows": ">=0.70.0"
+  },
+  "peerDependenciesMeta": {
+    "react-native-windows": {
+      "optional": true
+    }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
@@ -62,13 +91,6 @@
       "node"
     ]
   },
-  "keywords": [
-    "phyllo-connect",
-    "getphyllo",
-    "phyllo",
-    "react-native-phyllo-connect",
-    "phyllo-connect-react-native"
-  ],
   "overrides": {
     "json5": "2.2.2",
     "hermes-engine": "0.10.0"

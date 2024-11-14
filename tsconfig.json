@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "lib": ["ESNext"],
     "module": "ESNext",
+    "lib": ["ES2017"],
+    "jsx": "react-native",
     "moduleResolution": "Node",
-    "noEmitOnError": true,
-    "outDir": "./lib",
-    "skipLibCheck": true,
-    "sourceMap": true,
+
+    "allowJs": false,
     "strict": true,
-    "target": "ES2018"
+    "declaration": true,
+    "sourceMap": true,
+    "stripInternal": true,
+    "skipLibCheck": true,
+
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
-  "exclude": ["**/__tests__/*"],
-  "include": ["src/*"]
+  "include": ["src/**/*"],
+  "exclude": ["example", "node_modules", "**/*.spec.ts"]
 }

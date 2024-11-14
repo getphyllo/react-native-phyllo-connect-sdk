@@ -36,18 +36,18 @@ export default function ExampleApp() {
   }
   const onAccountConnectedCallBack = (accountId, workplatformId, userId) => {
     console.log(
-      `onAccountConnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onAccountConnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
     Toast.show(
-      `onAccountConnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onAccountConnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
   }
   const onAccountDisconnectedCallBack = (accountId, workplatformId, userId) => {
     console.log(
-      `onAccountDisconnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onAccountDisconnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
     Toast.show(
-      `onAccountDisconnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onAccountDisconnected accountId: ${accountId}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
   }
   const onTokenExpiredCallBack = (userId) => {
@@ -57,10 +57,10 @@ export default function ExampleApp() {
 
   const onConnectionFailure = (reason, workplatformId, userId) => {
     console.log(
-      `onConnectionFailure reason: ${reason}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onConnectionFailure reason: ${reason}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
     Toast.show(
-      `onConnectionFailure reason: ${reason}, workplatformId: ${workplatformId}, userId: ${userId}`
+      `onConnectionFailure reason: ${reason}, workplatformId: ${workplatformId}, userId: ${userId}`,
     )
   }
 
@@ -76,8 +76,8 @@ export default function ExampleApp() {
         id = userId
         token = userToken
       } else {
-        id = await createUser(generateRandomString(8), externalId,baseURL)
-        token = await createUserToken(id,baseURL)
+        id = await createUser(generateRandomString(8), externalId, baseURL)
+        token = await createUserToken(id, baseURL)
         await AsyncStorage.setItem('user-id', id)
         await AsyncStorage.setItem('user-token', token)
         setUserId(id)
@@ -103,7 +103,6 @@ export default function ExampleApp() {
       phylloConnect.open()
 
       console.log('Version Object', phylloConnect.version())
-      
     } catch (e) {
       Toast.show(e.message)
     }
